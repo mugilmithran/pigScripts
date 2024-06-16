@@ -1,7 +1,7 @@
 file = LOAD '/user/mugilmithran/customer_purchases.csv' USING PigStorage(',') AS
 (customer_id: int, purchase_date: chararray, product_id: int, product_name: chararray, quantity: int, total_amount: float);
 
-grouped_customer = GROUP file BY customer_id;
+grouped_customers = GROUP file BY customer_id;
 
 cust_purchase = FOREACH grouped_customers GENERATE group AS customer_id, COUNT(file.quantity) AS pur_count;
 
