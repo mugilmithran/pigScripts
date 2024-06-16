@@ -7,8 +7,7 @@ purchase_amount = FOREACH grouped_customer GENERATE group AS customer_id, SUM(fi
 
 avg_pur_amt = FOREACH grouped_customer GENERATE group AS customer_id, AVG(file.total_amount) AS avg_amt;
 
-most_purchased_prod = FOREACH grouped_customer GENERATE group AS customer_id, COUNT(fil
-e) AS most_purchase;
+most_purchased_prod = FOREACH grouped_customer GENERATE group AS customer_id, COUNT(file) AS most_purchase;
 
 cross_join = JOIN purchase_amount BY customer_id, avg_pur_amt BY customer_id, most_purchased_prod BY customer_id;
 
