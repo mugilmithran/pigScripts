@@ -13,4 +13,4 @@ cross_join = JOIN purchase_amount BY customer_id, avg_pur_amt BY customer_id, mo
 
 final_output = FOREACH cross_join GENERATE purchase_amount::customer_id AS customer_id,tot_amt, most_purchase, avg_amt, (tot_amt > 100 ? 'true' : 'false') AS high_value_customer;
 
-STORE final_output INTO 'user/mugilmithran/final_report' USING PigStorage(',');
+STORE final_output INTO '/user/mugilmithran/final_report_output' USING PigStorage(',');
