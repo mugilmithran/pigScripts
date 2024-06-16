@@ -7,6 +7,6 @@ highest_quantity_purchased = FOREACH highest_quantity GENERATE FLATTEN(group) AS
 
 highest_qty_purchased = ORDER highest_quantity_purchased BY total_num DESC; 
 
-highest_num_purchased = LIMIT highest_quantity_purchased 1;
+highest_num_purchased = LIMIT highest_qty_purchased 1;
 
 DUMP highest_num_purchased;
